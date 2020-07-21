@@ -74,14 +74,14 @@ const SuperWealthCreator = () => {
     const bankAccount =
         //state is by default an object
         [
-            { id: 1, balance: 10 },
-            { id: 2, balance: 20 },
-            { id: 3, balance: 30 },
-            { id: 4, balance: 40 },
-            { id: 5, balance: 50 },
+            { id: '6a37fad9-d1a1-4ca4-9bf3-7e4bf0c36c8d', balance: 122420.92 },
+            { id: '55b16334-bf2c-4443-92e3-29df8182ac18', balance: 28.38 },
+            { id: 'b69afadd-a033-4fb6-87ba-1385b922d8b4', balance: 0.0 },
+            { id: 'c60a3b00-63b5-469f-89ea-5154e26483c1', balance: 10250.0 },
+            { id: 'e4fed049-a220-4cbf-b91a-ce778127ea6f', balance: 19799.26 },
         ]
 
-    const recomendation =
+    const recomendations =
         //state is by default an object
         {
             'Covid19#100': {
@@ -107,6 +107,30 @@ const SuperWealthCreator = () => {
             },
         }
 
+    const recomendation = {
+        'FDDeposit#101': {
+            ProductName: 'RDDepositProduct',
+            ProductId: 'FDDeposit#101',
+            ProductType: 'Investment',
+            roi: 7,
+            additionalBenifits: 'additionalBenifits',
+        },
+        'RDDepositProduct#100': {
+            ProductName: 'RDDepositProduct',
+            ProductId: 'RDDepositProduct#100',
+            ProductType: 'Investment',
+            roi: 8,
+            additionalBenifits: 'additionalBenifits',
+        },
+        'retirementPlanProduct#102': {
+            ProductName: 'retirementPlanProduct',
+            ProductId: 'retirementPlanProduct#102',
+            ProductType: 'Investment',
+            roi: 6,
+            additionalBenifits: 'additionalBenifits',
+        },
+    }
+
     const renderTableData = () => {
         return bankAccount.map((bankAccount, index) => {
             const { id, balance } = bankAccount //destructuring
@@ -118,7 +142,7 @@ const SuperWealthCreator = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://www.iconsdb.com/icons/preview/black/square-xxl.png"
+                        src="http://www.iconsdb.com/icons/preview/black/square-xxl.png"
                         alt="First slide"
                         class="tales"
                     />
