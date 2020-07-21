@@ -1,0 +1,57 @@
+.content_header {
+    min-height: 55px;
+    background-color: #e6e2d3;
+    font-size: 30px;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.content_body {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.button_links {
+    width: 1000%;
+    font-size: 16px;
+    padding: 12px;
+    text-align: center;
+    color: white;
+    background-color: teal;
+    border: none;
+    text-decoration: none;
+}
+
+.recommendation {
+    width: 50%;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.tdkey {
+    font-size: 16px;
+    padding: 12px;
+    text-align: center;
+    color: white;
+    background-color: teal;
+    border: none;
+    text-decoration: none;
+}
+
+.tdvalue {
+    font-size: 16px;
+    padding: 42px;
+    text-align: center;
+    color: white;
+    background-color: teal;
+    border: none;
+    text-decoration: none;
+}
+
+.img {
+    width: 110px;
+    height: 110px;
+}
