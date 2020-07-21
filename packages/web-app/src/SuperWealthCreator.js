@@ -21,7 +21,7 @@ const SuperWealthCreator = () => {
 
     useEffect(async () => {
         const result = await axios(
-            'http://localhost:8080/open-banking/v3/aisp/accounts/recommendation'
+            'http://localhost:8080/open-banking/v3/aisp/accounts/recommendations'
         )
 
         setData(result.data)
@@ -40,6 +40,10 @@ const SuperWealthCreator = () => {
     //         })
     // }, [])
     console.log('account', data)
+    // if(data){
+    //     console.log('parsed',JSON.parse(data));
+    // }
+    //console.log('parsed',JSON.parse(data));
 
     // const data = useSelector((state) => state.app.data)
     // const accountId = useSelector((state) => state.account.accountId)
