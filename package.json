@@ -23,6 +23,7 @@
     "**/*.{js,html,css,json}": "prettier --write"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "react-bootstrap": "^1.2.2",
     "react-google-charts": "^3.0.15"

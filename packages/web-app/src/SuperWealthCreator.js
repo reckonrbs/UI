@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Chart from 'react-google-charts'
 import {
     Container,
@@ -13,12 +13,23 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './SuperWealthCreator.css'
 import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 
 const SuperWealthCreator = () => {
-    // useEffect(() => {
-    //     // Update the document title using the browser API
-    //     document.title = `You clicked ${count} times`;
-    //   },[]);
+    var result = {}
+    useEffect(() => {
+        // Update the document title using the browser API
+        // document.title = `You clicked ${count} times`;
+        axios
+            .get(
+                `http://localhost:8080/open-banking/v3/aisp/accounts/recommendation`
+            )
+            .then((res) => {
+                result = res.data
+                console.log('result', res)
+            })
+    }, [])
+    console.log(result)
 
     const data = useSelector((state) => state.app.data)
     const accountId = useSelector((state) => state.account.accountId)
