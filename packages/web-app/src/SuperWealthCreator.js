@@ -25,19 +25,23 @@ const SuperWealthCreator = () => {
 
     const dispatch = useDispatch()
 
-    var mostTransacted;
+    var mostTransacted
     const pieChartData = [
         ['Task', 'Hours per Day'],
         ['Health', 11],
         ['Investment', 21],
         ['Loan', 2],
     ]
-    const mostTransactedData = Math.max(pieChartData[1][1],pieChartData[2][1],pieChartData[3][1])
-    if(mostTransactedData == pieChartData[1][1]){
+    const mostTransactedData = Math.max(
+        pieChartData[1][1],
+        pieChartData[2][1],
+        pieChartData[3][1]
+    )
+    if (mostTransactedData == pieChartData[1][1]) {
         mostTransacted = pieChartData[1][0]
-    }else if(mostTransactedData == pieChartData[2][1]){
+    } else if (mostTransactedData == pieChartData[2][1]) {
         mostTransacted = pieChartData[2][0]
-    }else{
+    } else {
         mostTransacted = pieChartData[3][0]
     }
 
@@ -90,6 +94,7 @@ const SuperWealthCreator = () => {
                         className="d-block w-100"
                         src="https://www.iconsdb.com/icons/preview/black/square-xxl.png"
                         alt="First slide"
+                        class="tales"
                     />
                     <Carousel.Caption>
                         <h3>Bank account - {id}</h3>
@@ -127,7 +132,7 @@ const SuperWealthCreator = () => {
         })
     }
 
-    var bankCheck = mostTransacted === 'Banking'
+    // var bankCheck = mostTransacted === 'Banking'
 
     return (
         <Container fluid>
@@ -137,20 +142,8 @@ const SuperWealthCreator = () => {
                 </Alert.Heading>
             </Alert>
 
-            {/* <div>
-            <table id='bankAccountsTable'>
-               <tbody>
-               <tr>
-    <td>Account ID</td>
-    <td>balance</td>
-  </tr><tr>
-                  {renderTableData()}</tr>
-               </tbody>
-            </table>
-         </div> */}
-
             <div className="content_body">
-                <h5>Hi, Customer !</h5>
+                <h5>Hi, 123456789012 !</h5>
                 <br />
                 <Carousel>{renderTableData()}</Carousel>
                 <br />
@@ -180,12 +173,12 @@ const SuperWealthCreator = () => {
                         </Card>
                     </Col>
                     <Col>
-                        <p>
+                        <Alert variant="info">
                             Based on Analysis we would like to offer the below
                             Proposals:
-                        </p>
-                        <br />
-                        {console.log(bankCheck)}
+                        </Alert>
+                        {/*                             
+                        {console.log(bankCheck)} */}
                         <Accordion>{renderAccordionData()}</Accordion>
                     </Col>
                 </Row>
