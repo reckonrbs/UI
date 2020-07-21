@@ -24,13 +24,21 @@ const SuperWealthCreator = () => {
 
     const dispatch = useDispatch()
 
-    const mostTransacted = 'Banking'
-    const PieChartData = [
+    var mostTransacted;
+    const pieChartData = [
         ['Task', 'Hours per Day'],
         ['Health', 11],
-        ['Investment', 2],
+        ['Investment', 21],
         ['Loan', 2],
     ]
+    const mostTransactedData = Math.max(pieChartData[1][1],pieChartData[2][1],pieChartData[3][1])
+    if(mostTransactedData == pieChartData[1][1]){
+        mostTransacted = pieChartData[1][0]
+    }else if(mostTransactedData == pieChartData[2][1]){
+        mostTransacted = pieChartData[2][0]
+    }else{
+        mostTransacted = pieChartData[3][0]
+    }
 
     var bankCheck = mostTransacted === 'Banking'
     return (
@@ -57,7 +65,7 @@ const SuperWealthCreator = () => {
                                 height={'300px'}
                                 chartType="PieChart"
                                 loader={<div>Loading Chart</div>}
-                                data={PieChartData}
+                                data={pieChartData}
                                 options={{
                                     title: 'Your Transactions',
                                 }}
