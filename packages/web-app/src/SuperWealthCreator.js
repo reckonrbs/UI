@@ -1,7 +1,16 @@
 import React from 'react'
-import Chart from "react-google-charts"
-
-import './SuperWealthCreator.css'
+import Chart from 'react-google-charts'
+import {
+    Container,
+    Row,
+    Col,
+    Card,
+    Accordion,
+    Button,
+    Alert,
+} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Jumbotron from 'react-bootstrap/Jumbotron'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     getAccountList,
@@ -14,72 +23,99 @@ const SuperWealthCreator = () => {
     const accountId = useSelector((state) => state.account.accountId)
 
     const dispatch = useDispatch()
-    const mostTransacted = "Banking"
+
+    const mostTransacted = 'Banking'
     const PieChartData = [
         ['Task', 'Hours per Day'],
         ['Health', 11],
         ['Investment', 2],
-        ['Bank', 2],
+        ['Loan', 2],
     ]
-    return (
-        <div className="Content-wrapper">
-            <div className="content_header">
-                <h2>Super Wealth Creator</h2>
-            </div>
-            <div className="content_body">
-                <h3>Hi, Customer. Find all information related to account at one place.</h3>
-                <Chart
-                    width={'500px'}
-                    height={'300px'}
-                    chartType="PieChart"
-                    loader={<div>Loading Chart</div>}
-                    data={PieChartData}
-                    options={{
-                        title: 'Your Transactions',
-                    }}
-                    rootProps={{ 'data-testid': '1' }}
-                />
-                    <h3>Most Transacted domain = {mostTransacted}</h3>
-                <table className="recommendation">
-                    <tbody>
-                    {{mostTransacted}== "Banking" ? (<p>Hello</p>):null}
-                    console.log("Banking")
-                        <tr>
-                            <td className="tdkey">
-                                <img className="img"
-                                    src="https://image.freepik.com/free-vector/people-health-logo-vector_23987-264.jpg" alt="Health" /></td>
-                            <td className="tdvalue">Health Recommendations</td>
-                        </tr>
-                        <tr>
-                            <td className="tdkey">
-                                <img className="img"
-                                    src="https://banner2.cleanpng.com/20180928/tea/kisspng-payday-loan-ec-finance-personal-cash-loans-perso-ec-loans-loans-for-south-africa-with-fast-online-5bada75894f114.4493889515381072246101.jpg" alt="Loan" /></td>
-                            <td className="tdvalue">Loan Recommendation</td>
-                        </tr>
-                        <tr>
-                            <td className="tdkey">
-                                <img className="img"
-                                    src="https://i7.pngguru.com/preview/196/115/669/euro-truck-simulator-2-bank-loan-finance-banks-pattern.jpg" alt="Bank" /></td>
-                            <td className="tdvalue">
-                            <button
-                        className="buttonLinks"
-                        onClick={() =>
-                            getAccountRecommendations(dispatch, accountId)
-                        }
-                    >
-                        Bank Recommendations
-                    </button>
-                                </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div className="displayInfo">
-                <InfoDisplay data={data} />
-            </div>
-        </div>
 
+    var bankCheck = mostTransacted === 'Banking'
+    return (
+        <Container fluid>
+            <Alert variant="success">
+                <Alert.Heading>
+                    <h1>Super Wealth Creator</h1>
+                </Alert.Heading>
+            </Alert>
+
+            <div className="content_body">
+                <h5>Hi, Customer !</h5>
+                <br />
+                <br />
+                {/* <Row>
+                <Col><p>One year Analaysis  </p></Col>
+    </Row> */}
+                <Row>
+                    <Col>
+                        {' '}
+                        <Card style={{ width: '18rem' }}>
+                            <Chart
+                                width={'500px'}
+                                height={'300px'}
+                                chartType="PieChart"
+                                loader={<div>Loading Chart</div>}
+                                data={PieChartData}
+                                options={{
+                                    title: 'Your Transactions',
+                                }}
+                                rootProps={{ 'data-testid': '1' }}
+                            />
+                            <Card.Body>
+                                <Card.Title>One year spend</Card.Title>
+                                <Card.Text>
+                                    Your most Transacted domain in last one year
+                                    is <b>{mostTransacted}</b>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col>
+                        <p>
+                            Based on Analysis we would like to offer the below
+                            Proposals:
+                        </p>
+                        <br />
+                        {console.log(bankCheck)}
+                        <Accordion defaultActiveKey="0">
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle
+                                        as={Button}
+                                        variant="link"
+                                        eventKey="0"
+                                    >
+                                        Saving plan for x years
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body>Hello! I'm the body</Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                            <Card>
+                                <Card.Header>
+                                    <Accordion.Toggle
+                                        as={Button}
+                                        variant="link"
+                                        eventKey="0"
+                                    >
+                                        Plan 2
+                                    </Accordion.Toggle>
+                                </Card.Header>
+                                <Accordion.Collapse eventKey="0">
+                                    <Card.Body>
+                                        Hello! I'm another body
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                        </Accordion>
+                    </Col>
+                </Row>
+            </div>
+        </Container>
     )
 }
 
-export default SuperWealthCreator;
+export default SuperWealthCreator
