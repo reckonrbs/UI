@@ -21,7 +21,7 @@ const SuperWealthCreator = () => {
 
     useEffect(async () => {
         const result = await axios(
-            'http://localhost:8080/open-banking/v3/aisp/accounts/recommendation'
+            'http://localhost:8080/open-banking/v3.1/aisp/accounts/recommendations'
         )
 
         setData(result.data)
@@ -40,31 +40,32 @@ const SuperWealthCreator = () => {
     //         })
     // }, [])
     console.log('account', data)
+    console.log(data.Data)
 
     // const data = useSelector((state) => state.app.data)
     // const accountId = useSelector((state) => state.account.accountId)
 
     // const dispatch = useDispatch()
 
-    const mostTransacted = 'Banking'
+    var mostTransacted
     const pieChartData = [
         ['Task', 'Hours per Day'],
         ['Health', 11],
         ['Investment', 21],
         ['Loan', 2],
     ]
-    // const mostTransactedData = Math.max(
-    //     pieChartData[1][1],
-    //     pieChartData[2][1],
-    //     pieChartData[3][1]
-    // )
-    // if (mostTransactedData == pieChartData[1][1]) {
-    //     mostTransacted = pieChartData[1][0]
-    // } else if (mostTransactedData == pieChartData[2][1]) {
-    //     mostTransacted = pieChartData[2][0]
-    // } else {
-    //     mostTransacted = pieChartData[3][0]
-    // }
+    const mostTransactedData = Math.max(
+        pieChartData[1][1],
+        pieChartData[2][1],
+        pieChartData[3][1]
+    )
+    if (mostTransactedData == pieChartData[1][1]) {
+        mostTransacted = pieChartData[1][0]
+    } else if (mostTransactedData == pieChartData[2][1]) {
+        mostTransacted = pieChartData[2][0]
+    } else {
+        mostTransacted = pieChartData[3][0]
+    }
 
     const bankAccount =
         //state is by default an object
