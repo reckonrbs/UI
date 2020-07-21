@@ -58,19 +58,38 @@ const SuperWealthCreator = () => {
         ['Investment', 21],
         ['Loan', 2],
     ]
-    const mostTransactedData = Math.max(
-        pieChartData[1][1],
-        pieChartData[2][1],
-        pieChartData[3][1]
-    )
-    if (mostTransactedData == pieChartData[1][1]) {
-        mostTransacted = pieChartData[1][0]
-    } else if (mostTransactedData == pieChartData[2][1]) {
-        mostTransacted = pieChartData[2][0]
-    } else {
-        mostTransacted = pieChartData[3][0]
-    }
+    // commented out the actual implementation as our service is running on localhost, so it is taking time to get these values
+    // var mostTransacted
+    // if (data.Data && data.Data.Matrix) {
+    //     const pieChartData = [
+    //         ['Task', 'Hours per Day'],
+    //         ['Health', data.Data.Matrix.Health],
+    //         ['Investment', data.Data.Matrix.Investment],
+    //         ['Loan', data.Data.Matrix.Loan],
+    //     ]
+    // }
 
+    // if (data.Data && data.Data.Matrix) {
+        const mostTransactedData = Math.max(
+            pieChartData[1][1],
+            pieChartData[2][1],
+            pieChartData[3][1]
+        )
+        if (mostTransactedData == pieChartData[1][1]) {
+            mostTransacted = pieChartData[1][0]
+        } else if (mostTransactedData == pieChartData[2][1]) {
+            mostTransacted = pieChartData[2][0]
+        } else {
+            mostTransacted = pieChartData[3][0]
+        }
+    // }
+
+    // const mostTransactedProduct = mostTransacted + "Product"
+
+    // if (data.Data && data.Data.AccountBalances) {
+    //     var bankAccount
+    //     bankAccount = data.Data.AccountBalances
+    // }
     const bankAccount =
         //state is by default an object
         [
@@ -82,30 +101,30 @@ const SuperWealthCreator = () => {
         ]
 
     const recomendations =
-        //state is by default an object
-        {
-            'Covid19#100': {
-                ProductName: 'covid19Product',
-                ProductId: 'Covid19#100',
-                ProductType: 'Health',
-                roi: 3.14,
-                additionalBenifits: 'additionalBenifits',
-            },
-            'CancerTreatment#100': {
-                ProductName: 'CancerTreatmentProduct',
-                ProductId: 'CancerTreatment#100',
-                ProductType: 'Health',
-                roi: 3.5,
-                additionalBenifits: 'additionalBenifits',
-            },
-            'HeartTreatment#100': {
-                ProductName: 'HeartTreatmentProduct',
-                ProductId: 'HeartTreatment#100',
-                ProductType: 'Health',
-                roi: 4.5,
-                additionalBenifits: 'additionalBenifits',
-            },
-        }
+    //state is by default an object
+    {
+        'Covid19#100': {
+            ProductName: 'covid19Product',
+            ProductId: 'Covid19#100',
+            ProductType: 'Health',
+            roi: 3.14,
+            additionalBenifits: 'additionalBenifits',
+        },
+        'CancerTreatment#100': {
+            ProductName: 'CancerTreatmentProduct',
+            ProductId: 'CancerTreatment#100',
+            ProductType: 'Health',
+            roi: 3.5,
+            additionalBenifits: 'additionalBenifits',
+        },
+        'HeartTreatment#100': {
+            ProductName: 'HeartTreatmentProduct',
+            ProductId: 'HeartTreatment#100',
+            ProductType: 'Health',
+            roi: 4.5,
+            additionalBenifits: 'additionalBenifits',
+        },
+    }
 
     const recomendation = {
         'FDDeposit#101': {
@@ -131,7 +150,13 @@ const SuperWealthCreator = () => {
         },
     }
 
+    // if (data.Data && data.Data.AccountBalances) {
+    //     var recomendation 
+    //     recomendation  = data.Data.Recomendation.mostTransactedProduct
+    // }
+
     const renderTableData = () => {
+        // if (data.Data && data.Data.AccountBalances) {
         return bankAccount.map((bankAccount, index) => {
             const { id, balance } = bankAccount //destructuring
             return (
@@ -153,9 +178,11 @@ const SuperWealthCreator = () => {
                 </Carousel.Item>
             )
         })
+        // }
     }
 
     const renderAccordionData = () => {
+        // if (data.Data && data.Data.AccountBalances) {
         return Object.keys(recomendation).map((key, index) => {
             if (recomendation.hasOwnProperty(key)) {
                 const { ProductName, ProductId, roi } = recomendation[key]
@@ -180,6 +207,7 @@ const SuperWealthCreator = () => {
                 )
             }
         })
+        // }
     }
 
     // var bankCheck = mostTransacted === 'Banking'
