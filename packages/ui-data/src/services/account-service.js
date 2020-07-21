@@ -81,6 +81,20 @@ export function getAccountStandingOrders(dispatch, accountId) {
     )
 }
 
+export function getAccountRecommendations(dispatch, accountId) {
+    createRequest(
+        dispatch,
+        `/aisp/accounts/${accountId}/recommendations`,
+        'GET',
+        null,
+        {},
+        function (response) {
+            dispatch(setData(response))
+        }
+    )
+}
+
+
 export function getAccountProducts(dispatch, params) {
     createRequest(dispatch, '/aisp/products', 'GET', params, {}, function (
         response

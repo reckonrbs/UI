@@ -8,5 +8,6 @@
     "/aisp/accounts/:id/balances": "/balances",
     "/aisp/accounts/:id/standing-orders": "/standing-orders",
     "/aisp/accounts/:id/products": "/products",
-    "/pisp/domestic-payments/:id": "/domestic-payment-status"
+    "/pisp/domestic-payments/:id": "/domestic-payment-status",
+    "/aisp/accounts/:id/recommendations": "/recommendations"
 }
