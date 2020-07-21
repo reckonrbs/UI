@@ -39,7 +39,7 @@ const SuperWealthCreator = () => {
     // }, [setResponseData])
     //         })
     // }, [])
-    console.log('account', data[0])
+    console.log('account', data)
 
     // const data = useSelector((state) => state.app.data)
     // const accountId = useSelector((state) => state.account.accountId)
