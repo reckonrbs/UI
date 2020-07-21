@@ -40,7 +40,11 @@ const SuperWealthCreator = () => {
     //         })
     // }, [])
     console.log('account', data)
-    console.log(data.Data)
+
+    // if(data){
+    //     console.log('parsed',JSON.parse(data));
+    // }
+    //console.log('parsed',JSON.parse(data));
 
     // const data = useSelector((state) => state.app.data)
     // const accountId = useSelector((state) => state.account.accountId)
