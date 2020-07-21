@@ -16,45 +16,55 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
 const SuperWealthCreator = () => {
-    var result = {}
-    useEffect(() => {
-        // Update the document title using the browser API
-        // document.title = `You clicked ${count} times`;
-        axios
-            .get(
-                `http://localhost:8080/open-banking/v3/aisp/accounts/recommendation`
-            )
-            .then((res) => {
-                result = res.data
-                console.log('result', res)
-            })
+    //var result = {}
+    const [data, setData] = React.useState('')
+
+    useEffect(async () => {
+        const result = await axios(
+            'http://localhost:8080/open-banking/v3/aisp/accounts/recommendation'
+        )
+
+        setData(result.data)
     }, [])
-    console.log(result)
+    // useEffect(() => {
+    //     // Update the document title using the browser API
+    //     // document.title = `You clicked ${count} times`;
+    //     axios
+    //         .get(
+    //             `http://localhost:8080/open-banking/v3/aisp/accounts/recommendation`
+    //         )
+    //         .then((res) => {
+    //             responseData = res.data
+    //             setResponseData(response.data.translation)
+    // }, [setResponseData])
+    //         })
+    // }, [])
+    console.log('account', data[0])
 
-    const data = useSelector((state) => state.app.data)
-    const accountId = useSelector((state) => state.account.accountId)
+    // const data = useSelector((state) => state.app.data)
+    // const accountId = useSelector((state) => state.account.accountId)
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    var mostTransacted
+    const mostTransacted = 'Banking'
     const pieChartData = [
         ['Task', 'Hours per Day'],
         ['Health', 11],
         ['Investment', 21],
         ['Loan', 2],
     ]
-    const mostTransactedData = Math.max(
-        pieChartData[1][1],
-        pieChartData[2][1],
-        pieChartData[3][1]
-    )
-    if (mostTransactedData == pieChartData[1][1]) {
-        mostTransacted = pieChartData[1][0]
-    } else if (mostTransactedData == pieChartData[2][1]) {
-        mostTransacted = pieChartData[2][0]
-    } else {
-        mostTransacted = pieChartData[3][0]
-    }
+    // const mostTransactedData = Math.max(
+    //     pieChartData[1][1],
+    //     pieChartData[2][1],
+    //     pieChartData[3][1]
+    // )
+    // if (mostTransactedData == pieChartData[1][1]) {
+    //     mostTransacted = pieChartData[1][0]
+    // } else if (mostTransactedData == pieChartData[2][1]) {
+    //     mostTransacted = pieChartData[2][0]
+    // } else {
+    //     mostTransacted = pieChartData[3][0]
+    // }
 
     const bankAccount =
         //state is by default an object
